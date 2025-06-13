@@ -9,7 +9,6 @@ import time
 
 class BrowserController:
 	def __init__(self, driver: webdriver.Chrome):
-		"""初始化浏览器控制器"""
 		self.driver = driver
 		self.actionChains = ActionChains(driver)
 		self.wait = WebDriverWait(driver, 10)
@@ -130,5 +129,4 @@ class BrowserController:
 			return False
 	
 	def Sleep(self, seconds: float) -> None:
-		"""等待指定时间"""
 		time.sleep(seconds)

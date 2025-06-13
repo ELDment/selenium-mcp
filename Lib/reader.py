@@ -4,12 +4,9 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
 from typing import List, Dict, Optional, Any, Tuple
-# import json
-# import re
 
 class PageReader:
 	def __init__(self, driver: webdriver.Chrome):
-		"""初始化页面读取器"""
 		self.driver = driver
 		self.wait = WebDriverWait(driver, 10)
 	

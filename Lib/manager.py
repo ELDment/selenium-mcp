@@ -42,7 +42,7 @@ class SeleniumManager:
 		except Exception:
 			return None
 
-	def getOrCreateDriver(self) -> Optional[webdriver.Chrome]:
+	def GetOrCreateDriver(self) -> Optional[webdriver.Chrome]:
 		"""获取或创建Selenium实例"""
 		for pid in self.__getRunningSeleniumPids():
 			driver = self.__getActiveDriver(pid)
@@ -67,13 +67,13 @@ class SeleniumManager:
 				if self.debug:
 					print(f"连接到现有实例失败: {e}")
 					print("尝试创建一个新的Selenium实例...")
-				return self.createNewDriver()
+				return self.CreateNewDriver()
 		else:
 			if self.debug:
 				print(f"端口 {port} 未被使用，创建一个新的Selenium实例...")
-			return self.createNewDriver()
+			return self.CreateNewDriver()
 
-	def createNewDriver(self) -> Optional[webdriver.Chrome]:
+	def CreateNewDriver(self) -> Optional[webdriver.Chrome]:
 		"""创建新的Selenium实例"""
 		options = Options()
 		options.add_argument('--disable-blink-features=AutomationControlled')
@@ -110,7 +110,7 @@ class SeleniumManager:
 			self.driver = None
 			return None
 
-	def quitDriver(self) -> bool:
+	def QuitDriver(self) -> bool:
 		"""关闭Selenium实例"""
 		if self.driver:
 			try:
@@ -127,6 +127,6 @@ class SeleniumManager:
 			print("没有正在运行的Selenium实例。")
 		return False
 
-	def hasDriver(self) -> bool:
+	def HasDriver(self) -> bool:
 		"""判断是否有Selenium实例"""
 		return self.driver is not None
